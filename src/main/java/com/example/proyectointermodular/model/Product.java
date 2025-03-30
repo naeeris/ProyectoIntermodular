@@ -99,31 +99,71 @@ public class Product {
         return type;
     }
 
+    /**
+     * Setter para establecer el tipo.
+     * @param type Tipo de producto.
+     */
     public void setType(Type type) {
         this.type = type;
     }
 
+    /**
+     * Getter para obtener el material.
+     * @return Devuelve el material.
+     */
     public Material getMaterial() {
         return material;
     }
 
+    /**
+     * Setter para establecer el material.
+     * @param material Material del producto.
+     */
     public void setMaterial(Material material) {
         this.material = material;
     }
 
+    /**
+     * Getter para obtener la descripcion.
+     * @return Devuelve la descripcion.
+     */
     public String getDescription() {
         return description;
     }
 
+    /**
+     * Setter para establecer la descripcion.
+     * @param description Descripcion del producto.
+     */
     public void setDescription(String description) {
         this.description = description;
     }
 
+    /**
+     * Getter para obtener el precio.
+     * @return Devuelve el precio del producto.
+     */
     public double getPrice() {
         return price;
     }
 
+    /**
+     * Setter para establecer el precio.
+     * @param price Precio del producto.
+     */
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", type=" + type +
+                ", material=" + material +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                '}';
     }
 }
