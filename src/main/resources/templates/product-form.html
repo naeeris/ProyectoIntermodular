@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="fragments/fragments :: body">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Product Form</title>
+</head>
+<body>
+    <h2 th:text="${product.id != null} ? 'Editar Producto' : 'Nuevo Producto'"></h2>
+
+    <form th:action="${product.id != null} ? @{/products/update/{id}(id=${product.id})} : @{/products}" th:object="${product}" method="post">
+        <div class="mb-3">
+            <label for="name" class="form-label">Nombre</label>
+            <input type="text" th:field="*{name}" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="type" class="form-label">Tipo</label>
+            <select th:field="*{type}" class="form-select" required>
+                <option th:each="type : ${types}" th:value="${type}" th:text="${type.name}"></option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="material" class="form-label">Material</label>
+            <select th:field="*{material}" class="form-select" required>
+                <option th:each="material : ${materials}" th:value="${material}" th:text="${material.name}"></option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="description" class="form-label">Descripción</label>
+            <textarea th:field="*{description}" class="form-control"></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label for="price" class="form-label">Precio (€)</label>
+            <input type="number" th:field="*{price}" step="0.01" class="form-control" required>
+        </div>
+
+        <button type="submit" class="btn btn-success">Guardar</button>
+        <a th:href="@{/products}" class="btn btn-secondary">Cancelar</a>
+    </form>
+
+</body>
+</html>
+

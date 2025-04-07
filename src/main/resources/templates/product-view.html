@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="fragments/fragments :: body">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h2>Detalles del Producto</h2>
+
+    <ul class="list-group">
+        <li class="list-group-item"><strong>Nombre:</strong> <span th:text="${product.name}"></span></li>
+        <li class="list-group-item"><strong>Tipo:</strong> <span th:text="${product.type.name}"></span></li>
+        <li class="list-group-item"><strong>Material:</strong> <span th:text="${product.material.name}"></span></li>
+        <li class="list-group-item"><strong>Descripción:</strong> <span th:text="${product.description}"></span></li>
+        <li class="list-group-item"><strong>Precio:</strong> <span th:text="${product.price} + ' €'"></span></li>
+    </ul>
+
+    <a th:href="@{/products}" class="btn btn-primary mt-3">Volver al listado</a>
+
+</body>
+</html>
+
