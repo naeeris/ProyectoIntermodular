@@ -8,7 +8,7 @@ public class Material {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column(name = "name", nullable = false, unique = true)
     private String name;
@@ -18,7 +18,7 @@ public class Material {
     }
 
     //Constructor con todos los atributos
-    public Material(long id, String name) {
+    public Material(Long id, String name) {
         this.id = id;
         this.name = name;
     }

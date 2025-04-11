@@ -8,7 +8,7 @@ public class Type {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column(name = "name", nullable = false, unique = true)
     private String name;
@@ -18,7 +18,7 @@ public class Type {
     }
 
     //Constructor con todos los atributos
-    public Type(long id, String name) {
+    public Type(Long id, String name) {
         this.id = id;
         this.name = name;
     }
@@ -27,7 +27,7 @@ public class Type {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

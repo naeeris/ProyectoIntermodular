@@ -72,12 +72,12 @@ public class ProductController {
 
     /**
      * Metodo para crear un nuevo producto
-     * @param model Producto.
+     * @param product Producto.
      * @return Devuelve uan redireccion a /products.
      */
     @PostMapping("")
-    public String createProduct(Model model){
-        productRepository.save(new Product());
+    public String createProduct(@ModelAttribute Product product){
+        productRepository.save(product);
         return "redirect:/products";
     }
 

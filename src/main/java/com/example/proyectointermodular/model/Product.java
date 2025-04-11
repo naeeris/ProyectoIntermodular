@@ -15,7 +15,7 @@ public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column(name = "name", nullable = false)
     private String name;
@@ -50,7 +50,7 @@ public class Product {
      * @param price Precio del producto.
      * @param description Descripción del producto.
      */
-    public Product(long id, String name, Type type, Material material, String description, double price) {
+    public Product(Long id, String name, Type type, Material material, String description, double price) {
         this.id = id;
         this.name = name;
         this.type = type;
@@ -63,7 +63,7 @@ public class Product {
      * Getter para obtener el ID.
      * @return Devuelve el ID.
      */
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
@@ -71,7 +71,7 @@ public class Product {
      * Setter para establecer el ID.
      * @param id ID del producto.
      */
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
