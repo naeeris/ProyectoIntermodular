@@ -42,6 +42,39 @@ public class ProductController {
     @GetMapping("")
     public String findAll(Model model) {
         model.addAttribute("products", productRepository.findAll());
+        // Cargamos también tipos y materiales para el formulario de filtrado.
+        model.addAttribute("types", typeRepository.findAll());
+        model.addAttribute("materials", materialRepository.findAll());
+        return "product-list";
+    }
+
+    /**
+     * Metodo para filtrar.
+     * @param typeId
+     * @param materialId
+     * @param model
+     * @return
+     */
+    @GetMapping("/filter")
+    public String filterProducts(
+            @RequestParam(required = false) Long typeId,
+            @RequestParam(required = false) Long materialId,
+            Model model) {
+        List<Product> products;
+
+        if (typeId != null && materialId != null) {
+            products = productRepository.findByType_IdAndMaterial_Id(typeId, materialId);
+        } else if (typeId != null) {
+            products = productRepository.findByType_Id(typeId);
+        } else if (materialId != null) {
+            products = productRepository.findByMaterial_Id(materialId);
+        } else {
+            products = productRepository.findAll();
+        }
+        model.addAttribute("products", products);
+        // Se vuelven a cargar para el formulario de filtrado.
+        model.addAttribute("types", typeRepository.findAll());
+        model.addAttribute("materials", materialRepository.findAll());
         return "product-list";
     }
 
@@ -121,6 +154,7 @@ public class ProductController {
                 product.setType(updatedProduct.getType());
                 product.setMaterial(updatedProduct.getMaterial());
                 product.setDescription(updatedProduct.getDescription());
+                product.setQuantity(updatedProduct.getQuantity());
                 product.setPrice(updatedProduct.getPrice());
 
                 //Guardo la info actualizada en la BD

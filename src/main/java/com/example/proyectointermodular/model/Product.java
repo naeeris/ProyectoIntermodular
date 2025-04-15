@@ -31,6 +31,9 @@ public class Product {
     @Column(name = "description")
     private String description;
 
+    @Column(name = "quantity")
+    private int quantity;
+
     @Column(name = "price", nullable = false)
     private double price;
 
@@ -49,13 +52,15 @@ public class Product {
      * @param material Material del producto.
      * @param price Precio del producto.
      * @param description Descripción del producto.
+     * @param quantity Cantidad.
      */
-    public Product(Long id, String name, Type type, Material material, String description, double price) {
+    public Product(Long id, String name, Type type, Material material, String description, int quantity, double price) {
         this.id = id;
         this.name = name;
         this.type = type;
         this.material = material;
         this.description = description;
+        this.quantity = quantity;
         this.price = price;
     }
 
@@ -140,6 +145,22 @@ public class Product {
     }
 
     /**
+     * Getter para obtener la cantidad.
+     * @return Devuelve la cantidad.
+     */
+    public int getQuantity() {
+        return quantity;
+    }
+
+    /**
+     * Setter para establecer la cantidad.
+     * @param quantity Cantidad.
+     */
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    /**
      * Getter para obtener el precio.
      * @return Devuelve el precio del producto.
      */
@@ -163,6 +184,7 @@ public class Product {
                 ", type=" + type +
                 ", material=" + material +
                 ", description='" + description + '\'' +
+                ", quantity=" + quantity +
                 ", price=" + price +
                 '}';
     }

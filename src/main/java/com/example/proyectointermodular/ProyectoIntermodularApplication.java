@@ -46,9 +46,9 @@ public class ProyectoIntermodularApplication {
 
 
         List<Product> products = List.of(
-                new Product(null, "Collar floral", savedTypes.get(0), savedMaterials.get(0), "Collar de 15 cm.", 25.99),
-                new Product(null, "Pulsera floral", savedTypes.get(1), savedMaterials.get(1), "Pulsera de 8 cm.", 15.99),
-                new Product(null, "Anillo floral", savedTypes.get(2), savedMaterials.get(2), "Anillo talla 12.", 20.99)
+                new Product(null, "Collar floral", savedTypes.get(0), savedMaterials.get(0), "Collar de 15 cm.", 2, 25.99),
+                new Product(null, "Pulsera floral", savedTypes.get(1), savedMaterials.get(1), "Pulsera de 8 cm.", 2, 15.99),
+                new Product(null, "Anillo floral", savedTypes.get(2), savedMaterials.get(2), "Anillo talla 12.", 2, 20.99)
         );
 
         productRepo.saveAll(products);
