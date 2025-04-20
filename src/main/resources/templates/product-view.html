@@ -2,25 +2,55 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Product View</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Product Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link th:href="@{/css/styles.css}" rel="stylesheet">
 </head>
 <body>
-    <div th:replace="~{fragments/fragments :: body}">
-        <div th:fragment="content">
-            <h2>Detalles del Producto</h2>
+<!-- Reemplazamos TODO por nuestro layout flex con navbar/main/footer -->
+<div th:replace="~{fragments/fragments :: body}">
+    <div th:fragment="content">
 
-            <ul class="list-group">
-                <li class="list-group-item"><strong>Nombre:</strong> <span th:text="${product.name}"></span></li>
-                <li class="list-group-item"><strong>Tipo:</strong> <span th:text="${product.type.name}"></span></li>
-                <li class="list-group-item"><strong>Material:</strong> <span th:text="${product.material.name}"></span></li>
-                <li class="list-group-item"><strong>Descripción:</strong> <span th:text="${product.description}"></span></li>
-                <li class="list-group-item"><strong>Descripción:</strong> <span th:text="${product.quantity}"></span></li>
-                <li class="list-group-item"><strong>Precio:</strong> <span th:text="${product.price} + ' €'"></span></li>
-            </ul>
-
-            <a th:href="@{/products}" class="btn btn-primary mt-3">Volver al listado</a>
+        <div class="card mx-auto border-0 shadow" style="max-width: 600px;">
+            <!-- Si tienes imagen de producto, descomenta y enlaza:
+            <img src="/images/default-product.jpg" class="card-img-top" alt="Producto"> -->
+            <div class="card-body">
+                <h3 class="card-title mb-3" th:text="${product.name}">Product Name</h3>
+                <ul class="list-group list-group-flush mb-3">
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span><strong>Type:</strong></span>
+                        <span th:text="${product.type.name}">Type</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span><strong>Material:</strong></span>
+                        <span th:text="${product.material.name}">Material</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span><strong>Quantity:</strong></span>
+                        <span th:text="${product.quantity}">0</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span><strong>Price:</strong></span>
+                        <span th:text="${product.price} + ' €'">0.00 €</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span><strong>Description:</strong></span>
+                        <span th:text="${product.description}">Description</span>
+                    </li>
+                </ul>
+                <div class="text-center">
+                    <a th:href="@{/products}" class="btn btn-primary">Back</a>
+                </div>
+            </div>
         </div>
+
     </div>
+</div>
+
+<script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js">
+</script>
 </body>
 </html>
-

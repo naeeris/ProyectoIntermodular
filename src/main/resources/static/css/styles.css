@@ -1,0 +1,25 @@
+.btn-color {
+    background-color: #8f6956;  /* tu color */
+    color: #ffffff;                 /* texto blanco */
+}
+.btn-color:hover {
+    background-color: #b9a38f;  /* un tono un poco más oscuro al hacer hover */
+}
+
+/* Fondo sólido para el dropdown */
+.dropdown-menu {
+    background-color: #e8dccf;   /* un beige más claro, por ejemplo */
+    border: 1px solid #c3b29a;    /* un borde suave que combine */
+}
+
+/* Ajustar los items para que se lean bien */
+.dropdown-item {
+    color: #333333;
+}
+.dropdown-item:hover,
+.dropdown-item:focus {
+    background-color: #d1bfa7;   /* fondo hover en beige oscuro */
+    color: #ffffff;
+}
+
+

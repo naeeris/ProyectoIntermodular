@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link th:href="@{/css/styles.css}" rel="stylesheet">
+</head>
+<body>
+    <div th:replace="~{fragments/fragments :: body}">
+        <div th:fragment="content">
+            <section class="container my-4">
+                <div class="row row-cols-1 row-cols-md-4 g-4">
+                    <!-- Tarjeta para Anillos -->
+                    <div class="col">
+                        <div class="card h-100 border-0 shadow">
+                            <img src="/img/homeRings.jpg" class="card-img-top" alt="Rings">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Rings</h5>
+                            </div>
+                            <div class="card-footer text-center">
+                                <a th:href="@{/products/filter(typeId=1)}" class="btn btn-color">View Rings</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Tarjeta para Pendientes -->
+                    <div class="col">
+                        <div class="card h-100 border-0 shadow">
+                            <img src="/img/homeEarrings.jpg" class="card-img-top" alt="Earrings">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Earrings</h5>
+                            </div>
+                            <div class="card-footer text-center">
+                                <a th:href="@{/products/filter(typeId=2)}" class="btn btn-color">View Earrings</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Tarjeta para Collares -->
+                    <div class="col">
+                        <div class="card h-100 border-0 shadow">
+                            <img src="/img/homeNecklaces.jpg" class="card-img-top" alt="Necklaces">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Necklaces</h5>
+                            </div>
+                            <div class="card-footer text-center">
+                                <a th:href="@{/products/filter(typeId=3)}" class="btn btn-color">View Necklaces</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Tarjeta para Pulseras -->
+                    <div class="col">
+                        <div class="card h-100 border-0 shadow">
+                            <img src="/img/homeBracelets.jpg" class="card-img-top" alt="Bracelets">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Bracelets</h5>
+                            </div>
+                            <div class="card-footer text-center">
+                                <a th:href="@{/products/filter(typeId=4)}" class="btn btn-color">View Bracelets</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+</html>

@@ -3,7 +3,7 @@ package com.example.proyectointermodular.model;
 import jakarta.persistence.*;
 
 /**
- * Esta clase representa un producto con los atributos id, nombre, tipo, material, descripcion y precio.
+ * Esta clase representa un producto con los atributos id, nombre, tipo, material, descripcion, cantidad y precio.
  * Se han generado los metodos para poder hacer un CRUD de producto.
  * @author NoeliaCH
  * @version 1.0
@@ -52,7 +52,7 @@ public class Product {
      * @param material Material del producto.
      * @param price Precio del producto.
      * @param description Descripción del producto.
-     * @param quantity Cantidad.
+     * @param quantity Cantidad de producto.
      */
     public Product(Long id, String name, Type type, Material material, String description, int quantity, double price) {
         this.id = id;
@@ -74,7 +74,7 @@ public class Product {
 
     /**
      * Setter para establecer el ID.
-     * @param id ID del producto.
+     * @param id ID de producto.
      */
     public void setId(Long id) {
         this.id = id;
@@ -90,7 +90,7 @@ public class Product {
 
     /**
      * Setter para establecer el nombre.
-     * @param name Nombre del producto
+     * @param name Nombre de producto
      */
     public void setName(String name) {
         this.name = name;
@@ -154,7 +154,7 @@ public class Product {
 
     /**
      * Setter para establecer la cantidad.
-     * @param quantity Cantidad.
+     * @param quantity Cantidad de producto.
      */
     public void setQuantity(int quantity) {
         this.quantity = quantity;

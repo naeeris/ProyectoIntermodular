@@ -3,7 +3,7 @@ package com.example.proyectointermodular.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name ="type_product")
+@Table(name = "type_product")
 public class Type {
 
     @Id
@@ -14,28 +14,56 @@ public class Type {
     private String name;
 
     //Constructor vacio
+
+    /**
+     * Constructor vacio
+     */
     public Type() {
     }
 
-    //Constructor con todos los atributos
+    /**
+     * Constructor con todos los atributos
+     * @param id ID de tipo.
+     * @param name Nombre del tipo.
+     */
     public Type(Long id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public long getId() {
+    /**
+     * Getter para obtener el ID de tipo.
+     * @return Devuelve el ID de tipo.
+     */
+    public Long getId() {
+
         return id;
     }
 
+    /**
+     * Setter para establecer el ID de tipo.
+     * @param id ID del nuevo tipo.
+     */
     public void setId(Long id) {
+
         this.id = id;
     }
 
+    /**
+     * Getter para obtener el nombre de tipo.
+     * @return Devuelve el nombre de tipo.
+     */
     public String getName() {
+
         return name;
     }
 
+    /**
+     * Setter para establecer el nombre de tipo.
+     * @param name Nombre del nuevo tipo.
+     */
     public void setName(String name) {
+
         this.name = name;
     }
 

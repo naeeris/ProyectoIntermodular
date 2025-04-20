@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
@@ -24,18 +25,8 @@ public class ProductController {
     @Autowired
     private MaterialRepository materialRepository;
 
-
     /**
-     * Metodo para redirigir al listado de productos.
-     * @return Devuelve una redirección a /products.
-     */
-    /*@GetMapping("")
-    public String index(){
-        return "redirect:/products";
-    }*/
-
-    /**
-     * Metodo para listar todos los productos
+     * Metodo para listar todos los productos.
      * @param model Producto.
      * @return  Devuelve el listado de los productos en una vista HTML.
      */
@@ -49,17 +40,14 @@ public class ProductController {
     }
 
     /**
-     * Metodo para filtrar.
-     * @param typeId
-     * @param materialId
-     * @param model
-     * @return
+     * Metodo para filtrar por type y/o material.
+     * @param typeId ID del tipo de producto.
+     * @param materialId ID del material del producto.
+     * @param model Producto.
+     * @return Devuelve el filtro de los productos en una vista HTML.
      */
     @GetMapping("/filter")
-    public String filterProducts(
-            @RequestParam(required = false) Long typeId,
-            @RequestParam(required = false) Long materialId,
-            Model model) {
+    public String filterProducts( @RequestParam(required = false) Long typeId, @RequestParam(required = false) Long materialId, Model model) {
         List<Product> products;
 
         if (typeId != null && materialId != null) {
@@ -91,7 +79,7 @@ public class ProductController {
     }
 
     /**
-     * Metodo para obtener un formulario vacio.
+     * Metodo para obtener un formulario vacio para crear un producto.
      * @param model Producto.
      * @return Devuelve el formulario vacio de un producto en un vista HTML.
      */
@@ -104,9 +92,9 @@ public class ProductController {
     }
 
     /**
-     * Metodo para crear un nuevo producto
+     * Metodo para crear un nuevo producto en la BD.
      * @param product Producto.
-     * @return Devuelve uan redireccion a /products.
+     * @return Devuelve una redireccion a /products.
      */
     @PostMapping("")
     public String createProduct(@ModelAttribute Product product){
@@ -118,8 +106,7 @@ public class ProductController {
      * Metodo para editar un producto a traves de un formulario completo.
      * @param model Producto.
      * @param id ID del producto.
-     * @return Devuelve el formulario vacio de un producto en una vista HTML.
-     * @return Devuelve una redireccion al formulario vacio para añadir un nuevo producto.
+     * @return Devuelve el formulario vacio de un producto en una vista HTML, o devuelve una redireccion al formulario vacio para añadir un nuevo producto.
      */
     @GetMapping("/edit/{id}")
     public String editForm(Model model, @PathVariable long id) {
@@ -140,9 +127,9 @@ public class ProductController {
 
     /**
      * Metodo para actualizar la informacion de un producto en la base de datos.
-     * @param updatedProduct
-     * @param id
-     * @return
+     * @param updatedProduct Datos del nuevo producto.
+     * @param id ID del producto.
+     * @return Devuelve una redireccion a /products o redirige al formulario vacío si no existe el ID.
      */
     @PostMapping("/update/{id}")
     public String updateProduct(@ModelAttribute Product updatedProduct, @PathVariable Long id){
@@ -173,13 +160,17 @@ public class ProductController {
     /**
      * Metodo para eliminar un producto teniendo en cuenta el ID.
      * @param id ID del producto.
-     * @return
+     * @param redirectAttributes Para enviar un mensaje flash.
+     * @return Devuelve una redireccion a /products.
      */
     @GetMapping("/delete/{id}")
-    public String deleteById(@PathVariable Long id){
+    public String deleteById(@PathVariable Long id, RedirectAttributes redirectAttributes){
         productRepository.findById(id).ifPresent(product -> {
             productRepository.deleteById(product.getId());
         });
+
+        //Mensaje conforme se ha eliminado
+        redirectAttributes.addFlashAttribute("message", "Product deleted successfully.");
 
         return "redirect:/products";
     }
