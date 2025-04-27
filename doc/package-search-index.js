@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.example.proyectointermodular"},{"l":"com.example.proyectointermodular.controller"},{"l":"com.example.proyectointermodular.model"},{"l":"com.example.proyectointermodular.repository"}];updateSearchResults();

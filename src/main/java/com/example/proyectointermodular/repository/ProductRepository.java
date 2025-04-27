@@ -18,11 +18,6 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     // Para combinar filtros: productos que tienen un determinado tipo y material
     List<Product> findByType_IdAndMaterial_Id(Long typeId, Long materialId);
 
-    /*
-     * Nota:
-     * Cuando tu entidad Product tiene atributos tipo objeto (por ejemplo, Type type), debes acceder
-     * a sus propiedades mediante el separador de guion bajo (_). Es decir, findByType_Id consultará la propiedad id del objeto Type.
-     */
 
 
 }
