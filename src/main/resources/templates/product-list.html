@@ -22,37 +22,36 @@
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
             <!-- FORMULARIO DE FILTRO -->
-            <div th:if="${param.typeId} == null">
-                <form th:action="@{/products/filter}" method="get" class="row g-3 mb-4">
-                    <div class="col-md-4">
-                        <label for="typeId" class="form-label">Type:</label>
-                        <select id="typeId" name="typeId" class="form-select">
-                            <option value="">All</option>
-                            <option th:each="type : ${types}"
-                                    th:value="${type.id}"
-                                    th:text="${type.name}"
-                                    th:selected="${param.typeId} == ${type.id}">
-                            </option>
-                        </select>
-                    </div>
-                    <div class="col-md-4">
-                        <label for="materialId" class="form-label">Material:</label>
-                        <select id="materialId" name="materialId" class="form-select">
-                            <option value="">All</option>
-                            <option th:each="material : ${materials}"
-                                    th:value="${material.id}"
-                                    th:text="${material.name}"
-                                    th:selected="${param.materialId} == ${material.id}">
-                            </option>
-                        </select>
-                    </div>
-                    <div class="col-md-4 align-self-end">
-                        <button type="submit" class="btn btn-color">Filter</button>
-                        <a th:href="@{/products}" class="btn btn-secondary">Reset</a>
-                    </div>
-                </form>
-            </div>
-            <!--Tabla para mostras los productos-->
+            <form th:action="@{/products/filter}" method="get" class="row g-3 mb-4">
+                <div class="col-md-4">
+                    <label for="typeId" class="form-label">Type:</label>
+                    <select id="typeId" name="typeId" class="form-select">
+                        <option value="">All</option>
+                        <option th:each="type : ${types}"
+                                th:value="${type.id}"
+                                th:text="${type.name}"
+                                th:selected="${(param.typeId != null ? param.typeId : selectedTypeId)} == ${type.id}">
+                        </option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label for="materialId" class="form-label">Material:</label>
+                    <select id="materialId" name="materialId" class="form-select">
+                        <option value="">All</option>
+                        <option th:each="material : ${materials}"
+                                th:value="${material.id}"
+                                th:text="${material.name}"
+                                th:selected="${param.materialId} == ${material.id}">
+                        </option>
+                    </select>
+                </div>
+                <div class="col-md-4 align-self-end">
+                    <button type="submit" class="btn btn-color">Filter</button>
+                    <a th:href="@{/products}" class="btn btn-secondary">Reset</a>
+                </div>
+            </form>
+
+            <!--Tabla para mostrar los productos-->
             <table class="table table-striped">
                 <thead>
                 <tr>

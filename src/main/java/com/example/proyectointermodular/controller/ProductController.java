@@ -66,6 +66,16 @@ public class ProductController {
         return "product-list";
     }
 
+    @GetMapping("/type/{typeId}")
+    public String findByType(@PathVariable Long typeId, Model model) {
+        List<Product> products = productRepository.findByType_Id(typeId);
+        model.addAttribute("products", productRepository.findByType_Id(typeId));
+        model.addAttribute("types", typeRepository.findAll());
+        model.addAttribute("materials", materialRepository.findAll());
+        model.addAttribute("selectedTypeId", typeId); // muy importante
+        return "product-list";
+    }
+
     /**
      * Metodo para mostrar los detalles de un solo producto.
      * @param id ID del producto.

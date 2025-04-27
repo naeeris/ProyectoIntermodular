@@ -12,52 +12,52 @@
     <div th:replace="~{fragments/fragments :: body}">
         <div th:fragment="content">
             <section class="container my-4">
-                <div class="row row-cols-1 row-cols-md-4 g-4">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
                     <!-- Tarjeta para Anillos -->
-                    <div class="col">
-                        <div class="card h-100 border-0 shadow">
-                            <img src="/img/homeRings.jpg" class="card-img-top" alt="Rings">
-                            <div class="card-body text-center">
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="card border-0 shadow">
+                            <img src="/img/homeRings.jpg" class="card-img-top img-fluid" alt="Rings">
+                            <div class="card-body text-center p-2">
                                 <h5 class="card-title">Rings</h5>
                             </div>
                             <div class="card-footer text-center">
-                                <a th:href="@{/products/filter(typeId=1)}" class="btn btn-color">View Rings</a>
+                                <a th:href="@{/products/filter(typeId=1)}" class="btn btn-color btn-sm">View Rings</a>
                             </div>
                         </div>
                     </div>
                     <!-- Tarjeta para Pendientes -->
-                    <div class="col">
-                        <div class="card h-100 border-0 shadow">
-                            <img src="/img/homeEarrings.jpg" class="card-img-top" alt="Earrings">
-                            <div class="card-body text-center">
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="card border-0 shadow">
+                            <img src="/img/homeEarrings.jpg" class="card-img-top img-fluid" alt="Earrings">
+                            <div class="card-body text-center p-2">
                                 <h5 class="card-title">Earrings</h5>
                             </div>
                             <div class="card-footer text-center">
-                                <a th:href="@{/products/filter(typeId=2)}" class="btn btn-color">View Earrings</a>
+                                <a th:href="@{/products/filter(typeId=2)}" class="btn btn-color btn-sm">View Earrings</a>
                             </div>
                         </div>
                     </div>
                     <!-- Tarjeta para Collares -->
-                    <div class="col">
-                        <div class="card h-100 border-0 shadow">
-                            <img src="/img/homeNecklaces.jpg" class="card-img-top" alt="Necklaces">
-                            <div class="card-body text-center">
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="card border-0 shadow">
+                            <img src="/img/homeNecklaces.jpg" class="card-img-top img-fluid" alt="Necklaces">
+                            <div class="card-body text-center p-2">
                                 <h5 class="card-title">Necklaces</h5>
                             </div>
                             <div class="card-footer text-center">
-                                <a th:href="@{/products/filter(typeId=3)}" class="btn btn-color">View Necklaces</a>
+                                <a th:href="@{/products/filter(typeId=3)}" class="btn btn-color btn-sm">View Necklaces</a>
                             </div>
                         </div>
                     </div>
                     <!-- Tarjeta para Pulseras -->
-                    <div class="col">
-                        <div class="card h-100 border-0 shadow">
-                            <img src="/img/homeBracelets.jpg" class="card-img-top" alt="Bracelets">
-                            <div class="card-body text-center">
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="card border-0 shadow">
+                            <img src="/img/homeBracelets.jpg" class="card-img-top img-fluid" alt="Bracelets">
+                            <div class="card-body text-center p-2">
                                 <h5 class="card-title">Bracelets</h5>
                             </div>
                             <div class="card-footer text-center">
-                                <a th:href="@{/products/filter(typeId=4)}" class="btn btn-color">View Bracelets</a>
+                                <a th:href="@{/products/filter(typeId=4)}" class="btn btn-color btn-sm">View Bracelets</a>
                             </div>
                         </div>
                     </div>
